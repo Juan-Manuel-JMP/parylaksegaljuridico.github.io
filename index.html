@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudio Jurídico Integral</title>
+    <link rel="shortcut icon" href="./logo.jpg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <div class="fixed-bg-container">
+        <div class="bg-layer layer-1"></div>
+        <div class="bg-layer layer-2"></div>
+        <div class="overlay-mesh"></div>
+    </div>
+
+    <div class="floating-socials">
+        <a href="#" class="social-link btn-glow-gold" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="social-link btn-glow-gold" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-link btn-glow-gold" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
+    <button id="scrollTop" class="float-scroll-btn" aria-label="Ir al inicio">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <header class="glass-nav">
+        <div class="nav-content">
+            <div class="logo btn-glow-gold">Parylak <span>&</span> Segal</div>
+            <nav class="desktop-menu">
+                <a href="#home" class="nav-item active" data-es="Inicio" data-en="Home">Inicio</a>
+                <a href="#about" class="nav-item" data-es="Nosotras" data-en="About Us">Nosotras</a>
+                <a href="#values" class="nav-item" data-es="Valores" data-en="Values">Valores</a>
+                <a href="#services" class="nav-item" data-es="Especialidades" data-en="Practices">Especialidades</a>
+                <a href="#stats" class="nav-item" data-es="Logros" data-en="Stats">Logros</a>
+                <a href="#testimony" class="nav-item" data-es="Testimonios" data-en="Testimonials">Testimonios</a>
+                <a href="#contact" class="nav-item" data-es="Contacto" data-en="Contact">Contacto</a>
+            </nav>
+            <div class="nav-extra">
+                <button id="langToggle" class="lang-glass-btn">EN</button>
+                <button id="menuBtn" class="menu-icon-toggle" aria-label="Abrir menú"><i class="fas fa-bars-staggered"></i></button>
+            </div>
+        </div>
+        <nav id="mobileMenu" class="mobile-floating-nav">
+            <a href="#home" data-es="Inicio" data-en="Home">Inicio</a>
+            <a href="#about" data-es="Nosotras" data-en="About Us">Nosotras</a>
+            <a href="#values" data-es="Valores" data-en="Values">Valores</a>
+            <a href="#services" data-es="Especialidades" data-en="Practices">Especialidades</a>
+            <a href="#stats" data-es="Logros" data-en="Stats">Logros</a>
+            <a href="#testimony" data-es="Testimonios" data-en="Testimonials">Testimonios</a>
+            <a href="#contact" data-es="Contacto" data-en="Contact">Contacto</a>
+        </nav>
+    </header>
+
+    <main class="desktop-centered-layout">
+        
+        <section id="home" class="hero-section target-section center-aligned">
+            <div class="hero-content-box alignment-center">
+                <h1 class="kinetic-title text-center" data-es="Excelencia Laboral" data-en="Work Excellence">Excelencia Laboral</h1>
+                <h2 class="glow-title text-center typing-effect" data-es="Jurídica" data-text="Jurídica" data-en="Legal"></h2>
+                <p class="hero-subtitle text-center" data-es="Defensa Estratégica de Alto Nivel y Soluciones Integrales." data-en="High-level strategic defense and comprehensive solutions.">
+                    Defensa Estratégica de Alto Nivel y Soluciones Integrales.
+                </p>
+                <div class="cta-center-wrapper">
+                    <a href="#contact" class="btn-glow-gold" data-es="Agendar Consulta" data-en="Book Consultation">Agendar Consulta</a>
+                </div>
+            </div>
+        </section>
+
+<section id="about" class="section-divider target-section center-aligned">
+    <div class="container section-header-margin">
+        <h2 class="center-title glow-text" data-es="Sobre Nosotras" data-en="About Us">Sobre Nosotras</h2>
+        
+        <div class="about-grid">
+            <!-- Bloque 1: Tus fotos (Se mantiene igual) -->
+            <div class="venn-wrapper wider-gap">
+                <div class="venn-photo circle-1 space-left">
+                    <img src="./juli.jpeg" alt="Dra. Parylak, Julieta">
+                    <div class="venn-caption"><span>Dra. Parylak, Julieta</span></div>
+                </div>
+                <div class="venn-photo circle-2 space-right">
+                    <img src="./segal.jpeg" alt="Dra. Segal, Johanna">
+                    <div class="venn-caption"><span>Dra. Segal, Johanna</span></div>
+                </div>
+                <div class="venn-center-axis adaptive-glow">
+                    <i class="fas fa-balance-scale"></i>
+                </div>
+            </div>
+
+            <!-- Bloque 2: La Nueva Card (Sustituye al texto suelto que tenías antes) -->
+            <div class="about-text-card glass-item">
+                <div class="icon-wrapper-card"><i class="fa-solid fa-scale-balanced"></i></div>
+                <h4 class="text-center btn-glow-gold" data-es="Nuestro Estudio" data-en="Our Firm">Nuestro Estudio</h4>
+                <p data-es="El enfoque del estudio es el asesoramiento jurídico integral con representación legal estratégica de acuerdo a las necesidades de cada cliente." 
+                   data-en="The firm's focus is comprehensive legal advisory with strategic legal representation tailored to the needs of each client.">
+                   El enfoque del estudio es el asesoramiento jurídico integral con representación legal estratégica de acuerdo a las necesidades de cada cliente.
+                </p>
+                <p data-es="Nuestra prioridad indiscutible se centra en la resolución eficiente de conflictos, protegiendo siempre los intereses y derechos de nuestros clientes, de forma ética y profesional." 
+                   data-en="Our indisputable priority focuses on the efficient resolution of conflicts, always protecting our clients' interests and rights in an ethical and professional manner.">Nuestra prioridad indiscutible se centra en la resolución eficiente de conflictos, protegiendo siempre los intereses y derechos de nuestros clientes, de forma ética y profesional.</p>
+                <p data-es="Trabajamos con absoluta cercanía, honestidad y confidencialidad, garantizando una defensa sólida en cada etapa del proceso judicial y extrajudicial." 
+                   data-en="We work with absolute proximity, honesty, and confidentiality, guaranteeing a solid defense at every stage of the judicial and extrajudicial process.">Trabajamos con absoluta cercanía, honestidad y confidencialidad, garantizando una defensa sólida en cada etapa del proceso judicial y extrajudicial.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <section id="values" class="section-divider target-section center-aligned">
+            <div class="container section-header-margin">
+                <h4 class="center-title glow-text btn-glow-gold title-small" data-es="Pilares Fundamentales" data-en="Core Pillars">Pilares Fundamentales</h4>
+                <div class="values-grid dual-block-desktop separated-grid">
+                    <div class="value-card glass-item micro-card">
+                        <div class="card-icon-glow"><i class="fas fa-shield-halved"></i></div>
+                        <h4 data-es="Integridad" data-en="Integrity">Integridad</h4>
+                        <p data-es="Ética corporativa inquebrantable." data-en="Unwavering corporate ethics.">Ancladas a la ética estricta.</p>
+                    </div>
+                    <div class="value-card glass-item micro-card">
+                        <div class="card-icon-glow"><i class="fas fa-eye"></i></div>
+                        <h4 data-es="Visión" data-en="Vision">Visión</h4>
+                        <p data-es="Anticipación de riesgos críticos." data-en="Anticipation of critical risks.">Anticipación de riesgos críticos.</p>
+                    </div>
+                    <div class="value-card glass-item micro-card">
+                        <div class="card-icon-glow"><i class="fas fa-gavel"></i></div>
+                        <h4 data-es="Agilidad" data-en="Agility">Agilidad</h4>
+                        <p data-es="Resoluciones bajo alta presión." data-en="Resolutions under high pressure.">Resoluciones bajo alta presión.</p>
+                    </div>
+                    <div class="value-card glass-item micro-card">
+                        <div class="card-icon-glow"><i class="fas fa-handshake"></i></div>
+                        <h4 data-es="Lealtad" data-en="Loyalty">Lealtad</h4>
+                        <p data-es="Fidelidad absoluta al cliente." data-en="Absolute loyalty to client.">Fidelidad absoluta al cliente.</p>
+                    </div>
+                    <div class="value-card glass-item micro-card">
+                        <div class="card-icon-glow"><i class="fas fa-lightbulb"></i></div>
+                        <h4 data-es="Innovación" data-en="Innovation">Innovación</h4>
+                        <p data-es="Estrategias fuera de lo común." data-en="Strategies out of the box.">Estrategias fuera de lo común.</p>
+                    </div>
+                    <div class="value-card glass-item micro-card">
+                        <div class="card-icon-glow"><i class="fas fa-certificate"></i></div>
+                        <h4 data-es="Excelencia" data-en="Excellence">Excelencia</h4>
+                        <p data-es="Rigurosidad en cada proceso." data-en="Rigorousness in every process.">Rigurosidad en cada proceso.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section-divider target-section center-aligned">
+            <div class="container section-header-margin">
+                <h5 class="center-title glow-text btn-glow-gold title-small" data-es="Áreas de Práctica Integral" data-en="Comprehensive Practices">Áreas de Práctica Integral</h5>
+                <div class="services-cards-independent content-spacing-top">
+                    <div class="service-box-card glass-item">
+                        <i class="fa-solid fa-gavel service-icon-new"></i>
+                        <h3 data-es="Consumidores y Usuarios" data-en="Consumers and Users">Consumidores y Usuarios</h3>
+                        <p data-es="Representación en todo tipo de procedimientos administrativos y judiciales." 
+                           data-en="Representation in all types of administrative and judicial proceedings.">Representación en todo tipo de procedimientos administrativos y judiciales.</p>
+                    </div>
+                    <div class="service-box-card glass-item">
+                        <i class="fa-solid fa-file-signature service-icon-new"></i>
+                        <h3 data-es="Civil y Familia" data-en="Civil and Family Law">Civil y Familia</h3>
+                        <p data-es="Sucesiones, Daños y Perjuicios - Divorcios, alimentos, homologación, ejecución de acuerdos y violencia doméstica." 
+                           data-en="Inheritance, Damages - Divorces, alimony, approval, enforcement of agreements and domestic violence.">Sucesiones, Daños y Perjuicios - Divorcios, alimentos, homologación, ejecución de acuerdos y violencia doméstica.</p>
+                    </div>
+                    <div class="service-box-card glass-item">
+                        <i class="fas fa-users-rectangle service-icon-new"></i>
+                        <h3 data-es="Jubilaciones y Pensiones" data-en="Retirement and Pensions">Jubilaciones y Pensiones</h3>
+                        <p data-es="Trámites de jubilaciones, moratorias previsionales, asistencia ante ANSES." 
+                           data-en="Retirement procedures, social security moratoria, assistance before ANSES.">Trámites de jubilaciones, moratorias previsionales, asistencia ante ANSES.</p>
+                    </div>
+                    <div class="service-box-card glass-item">
+                        <i class="fa-solid fa-hospital service-icon-new"></i>
+                        <h3 data-es="Sucesiones" data-en="Probate and Inheritance">Sucesiones</h3>
+                        <p data-es="Trámite de sucesión, declaratoria de herederos, división e inscripción de bienes." 
+                           data-en="Succession proceedings, declaration of heirs, division and registration of assets.">Trámite de sucesión, declaratoria de herederos, división e inscripción de bienes.</p>
+                    </div>
+                    <div class="service-box-card glass-item">
+                        <i class="fa-solid fa-car-burst service-icon-new"></i>
+                        <h3 data-es="Accidentes de Tránsito" data-en="Traffic Accidents">Accidentes de Tránsito</h3>
+                        <p data-es="Asistencia a víctimas de autos, motos y peatones, denuncia ante seguros, demanda por lesiones y daños." 
+                           data-en="Assistance to victims of cars, motorcycles, and pedestrians, insurance claims, lawsuits for injuries and damages.">Asistencia a víctimas de autos, motos y peatones, denuncia ante seguros, demanda por lesiones y daños.</p>
+                    </div>
+                    <div class="service-box-card glass-item">
+                        <i class="fa-brands fa-black-tie service-icon-new"></i>
+                        <h3 data-es="Administrativo y Tributario" data-en="Administrative and Tax Law">Administrativo y Tributario</h3>
+                        <p data-es="Asistencia por multas fiscales y deudas ante entidades como ARCA, AGIP y ARBA." 
+                           data-en="Assistance for tax fines and debts before entities such as ARCA, AGIP, and ARBA.">Asistencia por multas fiscales y deudas ante entidades como ARCA, AGIP y ARBA.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="stats" class="section-divider target-section center-aligned">
+            <div class="container layout-centered-width section-header-margin">
+                <h2 class="center-title glow-text btn-glow-gold title-small" data-es="Resultados Demostrables" data-en="Proven Results">Resultados Demostrables</h2>
+                <div class="stats-equal-grid-centered content-spacing-top">
+                    <div class="stat-item glass-item identical-size">
+                        <span class="counter-display glow-text">98%</span>
+                        <p data-es="Tasa de Éxito Judicial" data-en="Judicial Success Rate">Tasa de Éxito Judicial</p>
+                    </div>
+                    <div class="stat-item glass-item identical-size">
+                        <span class="counter-display glow-text">20+</span>
+                        <p data-es="Años de Sinergia" data-en="Years of Synergy">Años de Sinergia</p>
+                    </div>
+                    <div class="stat-item glass-item identical-size">
+                        <span class="counter-display glow-text">$450M</span>
+                        <p data-es="Activos Blindados" data-en="Protected Assets">Activos Blindados</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimony" class="section-divider target-section center-aligned">
+            <div class="container layout-centered-width section-header-margin">
+                <h2 class="center-title glow-text btn-glow-gold title-small" data-es="Testimonios" data-en="Testimonials">Testimonios</h2>
+                <div class="carousel-container-compact glass-item content-spacing-top">
+                    <div class="quote-mark"><i class="fas fa-quote-left"></i></div>
+                    
+                    <div class="carousel-slides">
+                        <div class="slide active">
+                            <p class="testimony-text" data-es="&quot;El asesoramiento preventivo e integral de las doctoras Rossi y Myers salvó nuestra estructura corporativa.&quot;" data-en="&quot;The preventive and comprehensive advice of doctors Rossi and Myers saved our corporate structure.&quot;">"El asesoramiento preventivo e integral de las doctoras Rossi y Myers salvó nuestra estructura corporativa."</p>
+                            <h5 class="testimony-author">— Vicepresidente, Global Logistics Inc.</h5>
+                        </div>
+                        <div class="slide">
+                            <p class="testimony-text" data-es="&quot;Su precisión en el área penal económico nos brindó la tranquilidad necesaria en un proceso federal de alto riesgo.&quot;" data-en="&quot;Their precision in the economic criminal field provided us with the necessary peace of mind.&quot;">"Su precisión en el área penal económico nos brindó la tranquilidad necesaria en un proceso federal de alto riesgo."</p>
+                            <h5 class="testimony-author">— CEO, FinTech Latam Group</h5>
+                        </div>
+                        <div class="slide">
+                            <p class="testimony-text" data-es="&quot;Planificaron la protección patrimonial de nuestra familia de manera internacional. Excelente visión.&quot;" data-en="&quot;They planned our family asset protection internationally. Excellent vision.&quot;">"Planificaron la protección patrimonial de nuestra familia de manera internacional. Excelente visión."</p>
+                            <h5 class="testimony-author">— Fundadora, Myers & Brands</h5>
+                        </div>
+                    </div>
+
+                    <div class="carousel-indicators">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section-divider target-section center-aligned">
+            <div class="contact-form-box glass-item section-header-margin">
+                <h2 class="glow-text" data-es="Inicie una Consulta Privada" data-en="Initiate Private Consultation">Inicie una Consulta Privada</h2>
+                <form id="contactForm" onsubmit="event.preventDefault();">
+                    <div class="interactive-form-group">
+                        <input type="text" id="form-name" required placeholder=" ">
+                        <label for="form-name" data-es="Nombre Completo" data-en="Full Name">Nombre Completo</label>
+                    </div>
+                    <div class="interactive-form-group">
+                        <input type="email" id="form-email" required placeholder=" ">
+                        <label for="form-email" data-es="Correo Electrónico" data-en="Email Address">Correo Electrónico</label>
+                    </div>
+                    <div class="interactive-form-group">
+                        <textarea id="form-msg" rows="4" required placeholder=" "></textarea>
+                        <label for="form-msg" data-es="Detalles del Caso" data-en="Case Details">Detalles del Caso</label>
+                    </div>
+                    <button type="submit" class="btn-glow-gold" style="width: 100%;" data-es="Enviar Mensaje" data-en="Send Message">Enviar Mensaje</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-legal-minimal">
+        <div class="footer-container">
+            <span class="btn-glow-gold">&copy; 2026 Parylak & Segal.</span>
+            <span class="separator">|</span>
+            <span data-es="Confidencialidad Absoluta Protegida" data-en="Absolute Confidentiality Protected">Confidencialidad Absoluta Protegida</span>
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+</html>
