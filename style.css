@@ -40,7 +40,7 @@ html, body {
     animation: immersiveKenBurns 32s infinite alternate ease-in-out;
 }
 .layer-1 { background-image: url('justicia.jpg'); }
-.layer-2 { background-image: url('justicia1.jpg'); animation-delay: -16s; opacity: 3; }
+.layer-2 { background-image: url('justicia1.jpg'); animation-delay: -16s; opacity: 10; }
 @keyframes immersiveKenBurns {
     0% { transform: scale(1.0) translate(0, 0); }
     100% { transform: scale(1.15) translate(-1%, -2%); }
@@ -123,17 +123,16 @@ section {
 .nav-extra { display: flex; align-items: center; gap: 15px; }
 .lang-glass-btn { background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border-light); color: var(--text-primary); padding: 8px 14px; border-radius: 20px; font-weight: 600; cursor: pointer; }
 .menu-icon-toggle { background: transparent; border: none; color: var(--text-primary); font-size: 1.3rem; cursor: pointer; }
-.mobile-floating-nav { position: absolute; top: 75px; right: 5px; width: 240px; background: rgba(7, 9, 12, 0.82); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border: 1px solid var(--glass-border-light); border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 16px; opacity: 0; transform: translateY(-15px) scale(0.95); pointer-events: none; transition: var(--bezier-smooth); }
+.mobile-floating-nav { position: absolute; top: 75px; right: 5px; width: 240px; background: rgba(0, 0, 0, 0.781); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border: 1px solid var(--glass-border-light); border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 16px; opacity: 0; transform: translateY(-15px) scale(0.95); pointer-events: none; transition: var(--bezier-smooth); }
 .mobile-floating-nav.active { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
-.mobile-floating-nav a { color: var(--text-secondary); text-decoration: none; font-size: 1rem; font-weight: 600; padding: 6px 10px; transition: var(--bezier-smooth); }
+.mobile-floating-nav a { color: goldenrod; text-decoration: none; font-size: 1rem; font-weight: 600; padding: 6px 10px; transition: var(--bezier-smooth); }
 
 /* REQUISITO 1: SECCIÓN NOSOTRAS CON CUBIC-BEZIER AUTOMÁTICO CADA 2 SEGUNDOS */
-/* --- CONTENEDOR FLEXIBLE --- */
 .about-flex-container {
     display: flex;
-    flex-direction: column; /* Móvil: Uno abajo del otro */
+    flex-direction: column;
     align-items: center;
-    gap: 80px; /* Espacio para que las fotos no tapen la card */
+    gap: 80px;
     width: 100%;
     padding: 20px;
 }
@@ -156,7 +155,7 @@ section {
     -webkit-backdrop-filter: blur(12px);
     border-radius: 24px;
     transition: var(--bezier-smooth);
-    max-width: 550px; /* Evita que se estire demasiado */
+    max-width: 550px;
 }
 
 .about-text-card:hover {
@@ -179,17 +178,15 @@ section {
     align-items: center;
     margin: 40px auto;
     max-width: 600px;
-    overflow: visible; /* Permite que los círculos se desplacen hacia afuera */
+    overflow: visible;
 }
-/* Modificación para que la imagen ocupe el 100% del círculo */
 .venn-photo img { 
     width: 100%; 
     height: 100%; 
     object-fit: cover; 
-    border-radius: 50%; /* Asegura el círculo perfecto junto con el contenedor */
+    border-radius: 50%;
 }
 
-/* Reajuste del texto para que se muestre abajo y no se corte */
 .venn-photo {
     position: absolute;
     width: 160px;
@@ -200,7 +197,6 @@ section {
     transition: border-color 0.6s ease;
 }
 
-/* Nueva regla para asegurar que la imagen mantenga el recorte redondo */
 .venn-photo .img-wrapper {
     width: 100%;
     height: 100%;
@@ -211,21 +207,19 @@ section {
     left: 0;
 }
 
-/* Estilos para que los nombres aparezcan abajo de cada círculo */
 .venn-caption {
     position: absolute;
-    bottom: -30px; /* Lo empuja justo debajo del borde inferior del círculo */
+    bottom: -30px;
     left: 50%;
     transform: translateX(-50%);
     width: max-content;
     font-size: 12px;
     font-weight: 600;
-    color: var(--gold, #c5a059); /* Usa tu variable de oro o un color claro por defecto */
+    color: var(--gold);
     text-shadow: 0 2px 4px rgba(0,0,0,0.8);
     text-align: center;
 }
 
-/* Asignación de animaciones infinitas de vaivén automático */
 .space-left { 
     z-index: 2; 
     animation: autoVennLeft 3s cubic-bezier(0.25, 1, 0.5, 1) infinite alternate;
@@ -235,7 +229,6 @@ section {
     animation: autoVennRight 3s cubic-bezier(0.25, 1, 0.5, 1) infinite alternate;
 }
 
-/* Ciclo de animación: 2s abiertas, 2s cerradas de forma alterna */
 @keyframes autoVennLeft {
     0%, 15% { transform: translateX(-55px) scale(1); border-color: var(--glass-border-light); }
     50%, 100% { transform: translateX(-120px) scale(1.03); border-color: var(--gold); }
@@ -245,40 +238,52 @@ section {
     50%, 100% { transform: translateX(120px) scale(1.03); border-color: var(--gold); }
 }
 
-/* Se eliminaron captions e interferencias manuales de esta sección */
 .venn-center-axis { position: absolute; z-index: 4; background: var(--dark-prime); border: 2px solid var(--gold); width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: var(--gold); font-size: 1.4rem; box-shadow: 0 0 20px var(--gold-glow-color); pointer-events: none; }
 
 .text-block.text-center-card { text-align: center; padding: 45px 35px; border: 1px solid var(--glass-border-light); background: var(--glass-background); transition: var(--bezier-smooth); }
 .text-block.text-center-card:hover { border-color: rgba(197, 160, 89, 0.4); box-shadow: 0 20px 45px rgba(197, 160, 89, 0.08); transform: translateY(-4px); }
 
-/* REQUISITO 2: SECCIÓN PRINCIPAL - ESCRITURA AUTOMÁTICA EN "VEREDICTO" */
+
+/* REQUISITO 2: SECCIÓN PRINCIPAL - ESCRITURA AUTOMÁTICA EN "VEREDICTO" [CORREGIDO] */
 .glow-title { 
     font-family: var(--font-serif-kinetic); 
-    font-size: 2rem; 
+    font-size: 1.15rem; /* Tamaño optimizado móvil */
     color: var(--gold); 
     text-transform: uppercase; 
-    margin-bottom: 25px; 
-    min-height: 80px;
-    display: inline-block;
+    margin-bottom: 15px; /* Reducido de 25px a 15px para acercarlo más */
+    min-height: 45px; /* Asegura espacio suficiente para resoluciones grandes */
+    
+    /* Centrado flexible absoluto */
+    display: inline-flex;  
+    align-items: center;   
+    justify-content: center;
+    text-align: center;
     white-space: nowrap;
-    overflow: hidden;
-    border-right: 3px solid var(--gold); /* El cursor de escritura */
-    width: 0;
-    /* Pasos exactos basados en los caracteres de "VEREDICTO" */
-    animation: typingText 3s steps(9) infinite alternate, blinkCursor 0.75s step-end infinite;
 }
 
-@keyframes typingText {
-    0%, 10% { width: 0; }
-    60%, 100% { width: 100%; }
+/* El mini cursor perfectamente integrado y adaptativo al tamaño de la letra */
+.glow-title::after {
+    content: "";
+    display: inline-block; 
+    margin-left: 10px; 
+    flex-shrink: 0;
+    
+    width: 4px;         
+    height: 0.85em; /* Proporcional a la tipografía activa, da igual móvil o escritorio */
+    
+    background-color: var(--gold);
+    animation: blinkCursor 0.75s step-end infinite;
 }
+
+/* Animación limpia del parpadeo */
 @keyframes blinkCursor {
-    from, to { border-color: transparent }
-    50% { border-color: var(--gold); }
+    from, to { opacity: 0; }
+    50% { opacity: 1; }
 }
+
 
 /* PILARES FUNDAMENTALES */
-.values-grid.dual-block-desktop { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; }
+.values-grid.dual-block-desktop { display: grid; grid-template-columns: 1fr; gap: 25px; }
 .micro-card { padding: 25px 20px !important; text-align: center; transition: var(--bezier-smooth); }
 .micro-card h4 { font-family: var(--font-serif-kinetic); font-size: 1.15rem !important; margin-bottom: 10px !important; letter-spacing: 1px; }
 .micro-card p { font-size: 0.85rem !important; line-height: 1.5 !important; color: var(--text-secondary); }
@@ -319,10 +324,13 @@ section {
 
 .glass-item { background: var(--glass-background); border: 1px solid var(--glass-border-light); backdrop-filter: blur(12px); border-radius: 20px; }
 .glow-text { text-shadow: 0 0 15px var(--gold-glow-color); }
+h2.center-title.glow-text {
+    color: rgba(94, 88, 4, 0.94);
+}
 .btn-glow-gold { background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 10px 10px; border-radius: 30px; font-weight: 700; text-decoration: none; text-transform: uppercase; font-size: 0.85rem; transition: var(--bezier-smooth); cursor: pointer; letter-spacing: 1px; }
 .btn-glow-gold:hover { background: var(--gold); color: var(--dark-prime); box-shadow: 0 0 25px var(--gold); }
 
-.kinetic-title { font-family: var(--font-serif-kinetic); font-size: 2.2rem; line-height: 1.3; margin-bottom: 12px; letter-spacing: 1px; }
+.kinetic-title { font-family: var(--font-serif-kinetic); color: white; font-size: 1rem; line-height: 1.3; margin-bottom: 10px; letter-spacing: 1px; }
 .hero-subtitle { color: var(--text-secondary); line-height: 1.8; margin-bottom: 40px; max-width: 650px; font-size: 0.95rem; }
 
 /* FORMULARIO */
@@ -343,14 +351,18 @@ section {
 .footer-container .separator { display: none; }
 
 /* ==========================================================================
-   MEDIA QUERIES MEJORADAS (Control de Escritorio Absoluto)
+    MEDIA QUERIES (Escritorio Mobile)
    ========================================================================== */
 @media (min-width: 463px) {
     section { padding: 150px 60px 110px 60px; }
     .kinetic-title { font-size: 3.5rem; }
-    .glow-title { font-size: 6rem; }
-    .center-title { font-size: 2.5rem; margin-bottom: 70px; }
     
+    /* Configuración de tamaño en escritorio */
+    .glow-title { 
+        font-size: 4.5rem; 
+        min-height: 120px; /* Solo se activa de pantallas medianas en adelante */
+        margin-bottom: 25px;
+    }
     .stats-equal-grid-centered { grid-template-columns: repeat(3, 1fr); gap: 30px; }
     .venn-wrapper.wider-gap { height: 400px; }
     .venn-photo { width: 200px; height: 200px; }
@@ -375,7 +387,7 @@ section {
     .menu-icon-toggle, .mobile-floating-nav { display: none; }
     
     .about-grid { 
-        grid-template-columns: 1.2fr 0.8fr; /* La primera columna para fotos, la segunda para la card */
+        grid-template-columns: 1.2fr 0.8fr;
         gap: 30px; 
         max-width: 1300px; 
         margin: 0 auto; 
