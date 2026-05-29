@@ -1,22 +1,56 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+    // Variable global para que el sistema multilenguaje pueda reiniciar la escritura
+    let resetTypingEffect = () => {};
+
     // ==========================================================================
-    // 1. REQUISITO 3: EFECTO DE ESCRITURA AUTOMÁTICA (Typing Effect)
+    // 1. EFECTO DE ESCRITURA AUTOMÁTICA EN BUCLE INFINITO (Sincronizado)
     // ==========================================================================
     const typingElement = document.querySelector('.typing-effect');
+    
     if (typingElement) {
-        const textToType = typingElement.getAttribute('data-text');
         let charIndex = 0;
+        let isDeleting = false;
+        let timeoutId = null; // Guardamos el temporizador para poder cancelarlo
 
-        function type() {
-            if (charIndex < textToType.length) {
-                typingElement.textContent += textToType.charAt(charIndex);
+        function typeLoop() {
+            // Lee el idioma actual dinámicamente desde el atributo data-text o data-es
+            const currentText = typingElement.getAttribute('data-text') || typingElement.getAttribute('data-es') || "Jurídica";
+            
+            if (!isDeleting) {
+                typingElement.textContent = currentText.substring(0, charIndex + 1);
                 charIndex++;
-                setTimeout(type, 150); // Velocidad al escribir cada letra
+
+                if (charIndex === currentText.length) {
+                    isDeleting = true;
+                    timeoutId = setTimeout(typeLoop, 2000);
+                    return;
+                }
+                timeoutId = setTimeout(typeLoop, 150);
+            } else {
+                typingElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    timeoutId = setTimeout(typeLoop, 500);
+                    return;
+                }
+                timeoutId = setTimeout(typeLoop, 75);
             }
         }
-        // Iniciar después de un breve delay estético
-        setTimeout(type, 600);
+
+        // Función externa que llamará el botón de idioma para reiniciar el bucle limpio
+        resetTypingEffect = () => {
+            clearTimeout(timeoutId); // Frenamos la escritura del idioma anterior
+            charIndex = 0;
+            isDeleting = false;
+            typingElement.textContent = "";
+            typeLoop(); // Arrancamos con la nueva palabra
+        };
+
+        // Inicio inicial
+        setTimeout(typeLoop, 400);
     }
 
     // ==========================================================================
@@ -58,51 +92,66 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ==========================================================================
-    // 3. GESTIÓN MULTILENGUAJE DINÁMICO (ES || EN)
+    // 3. GESTIÓN MULTILENGUAJE DINÁMICO (ES || EN) - ¡REPARADO PARA EL CURSOR!
     // ==========================================================================
     const langToggle = document.getElementById("langToggle");
     let activeLanguage = "ES";
 
-    langToggle.addEventListener("click", () => {
-        activeLanguage = activeLanguage === "ES" ? "EN" : "ES";
-        langToggle.innerText = activeLanguage === "ES" ? "EN" : "ES";
+    if (langToggle) {
+        langToggle.addEventListener("click", () => {
+            activeLanguage = activeLanguage === "ES" ? "EN" : "ES";
+            langToggle.innerText = activeLanguage === "ES" ? "EN" : "ES";
 
-        document.querySelectorAll("[data-es]").forEach(element => {
-            element.innerText = element.getAttribute(`data-${activeLanguage.toLowerCase()}`);
+            document.querySelectorAll("[data-es]").forEach(element => {
+                const translation = element.getAttribute(`data-${activeLanguage.toLowerCase()}`);
+                
+                if (element.classList.contains('typing-effect')) {
+                    // En lugar de romper el texto, actualizamos el atributo que lee el typeLoop
+                    element.setAttribute('data-text', translation);
+                    // Reiniciamos el efecto de máquina de escribir con la nueva palabra
+                    resetTypingEffect();
+                } else {
+                    // Para el resto de textos normales de la web
+                    element.innerText = translation;
+                }
+            });
         });
-    });
+    }
 
     // ==========================================================================
     // 4. MENÚ FLOTANTE MÓVIL ASIMÉTRICO
     // ==========================================================================
     const menuBtn = document.getElementById("menuBtn");
     const mobileMenu = document.getElementById("mobileMenu");
-    const menuIcon = menuBtn.querySelector("i");
+    
+    if (menuBtn && mobileMenu) {
+        const menuIcon = menuBtn.querySelector("i");
 
-    menuBtn.addEventListener("click", (event) => {
-        event.stopPropagation();
-        mobileMenu.classList.toggle("active");
+        menuBtn.addEventListener("click", (event) => {
+            event.stopPropagation();
+            mobileMenu.classList.toggle("active");
 
-        if (mobileMenu.classList.contains("active")) {
-            menuIcon.className = "fas fa-times animate__animated animate__rotateIn";
-        } else {
-            menuIcon.className = "fas fa-bars-staggered animate__animated animate__fadeIn";
-        }
-    });
-
-    document.addEventListener("click", (event) => {
-        if (!mobileMenu.contains(event.target) && !menuBtn.contains(event.target)) {
-            mobileMenu.classList.remove("active");
-            menuIcon.className = "fas fa-bars-staggered";
-        }
-    });
-
-    mobileMenu.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", () => {
-            mobileMenu.classList.remove("active");
-            menuIcon.className = "fas fa-bars-staggered";
+            if (mobileMenu.classList.contains("active")) {
+                menuIcon.className = "fas fa-times animate__animated animate__rotateIn";
+            } else {
+                menuIcon.className = "fas fa-bars-staggered animate__animated animate__fadeIn";
+            }
         });
-    });
+
+        document.addEventListener("click", (event) => {
+            if (!mobileMenu.contains(event.target) && !menuBtn.contains(event.target)) {
+                mobileMenu.classList.remove("active");
+                menuIcon.className = "fas fa-bars-staggered";
+            }
+        });
+
+        mobileMenu.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                mobileMenu.classList.remove("active");
+                menuIcon.className = "fas fa-bars-staggered";
+            });
+        });
+    }
 
     // ==========================================================================
     // 5. BOTÓN SCROLL TOP & SCROLL SPY
@@ -110,17 +159,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const scrollTopBtn = document.getElementById("scrollTop");
 
     window.addEventListener("scroll", () => {
-        if (window.scrollY > 400) {
-            scrollTopBtn.classList.add("show");
-        } else {
-            scrollTopBtn.classList.remove("show");
+        if (scrollTopBtn) {
+            if (window.scrollY > 400) {
+                scrollTopBtn.classList.add("show");
+            } else {
+                scrollTopBtn.classList.remove("show");
+            }
         }
         navigationSpy();
     });
 
-    scrollTopBtn.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    });
+    if (scrollTopBtn) {
+        scrollTopBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    }
 
     // ==========================================================================
     // 6. SCROLLYTELLING (Intersection Observer)
@@ -138,8 +191,6 @@ document.addEventListener("DOMContentLoaded", () => {
             if (entry.isIntersecting) {
                 entry.target.classList.add("revealed");
 
-                // Quitamos las animaciones de Animate.css de los círculos 
-                // para que no interfieran con el vaivén infinito del CSS.
                 if (entry.target.id === "values") {
                     entry.target.querySelectorAll(".value-card").forEach((card, index) => {
                         setTimeout(() => {
