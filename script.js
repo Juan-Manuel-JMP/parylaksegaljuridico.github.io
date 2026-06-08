@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function startSlideShow() {
-        slideInterval = setInterval(nextSlide, 5000);
+        slideInterval = setInterval(nextSlide, 7000);
     }
 
     dots.forEach((dot, index) => {
