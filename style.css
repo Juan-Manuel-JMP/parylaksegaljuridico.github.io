@@ -419,3 +419,11 @@ h2.center-title.glow-text {
     
     .carousel-container-compact { max-width: 650px; padding: 55px 45px; }
 }
+
+/* Cancela el zoom automático en móviles al hacer focus */
+@media (max-width: 768px) {
+  .interactive-form-group input:focus, 
+  .interactive-form-group textarea:focus {
+    font-size: 16px !important;
+  }
+}
