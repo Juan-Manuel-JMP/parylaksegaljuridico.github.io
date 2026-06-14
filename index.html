@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -282,7 +283,140 @@
             <span data-es="Confidencialidad Absoluta Protegida" data-en="Absolute Confidentiality Protected">Confidencialidad Absoluta Protegida</span>
         </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<style>
+  /* Contenedor principal de la alerta (Cristal más transparente y limpio) */
+  .glass-popup {
+    background: rgba(255, 255, 255, 0.25) !important; /* Más transparente para potenciar el efecto vidrio */
+    backdrop-filter: blur(16px) !important; 
+    -webkit-backdrop-filter: blur(16px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important; 
+    border-radius: 20px !important;
+    box-shadow: 0 10px 40px 0 rgba(15, 23, 42, 0.12), 
+                inset 0 0 15px rgba(255, 255, 255, 0.4) !important;
+  }
+
+  /* Forzar a que el contenedor del icono de SweetAlert sea 100% transparente y sin bordes */
+  .swal2-icon {
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+  }
+
+  /* Estilo personalizado para el Check Azul */
+  .custom-blue-check {
+    font-size: 60px;
+    color: #38bdf8; /* Azul celeste brillante / corporativo */
+    line-height: 1;
+    display: block;
+    user-select: none;
+  }
+
+  /* Títulos y textos con excelente contraste sobre el cristal */
+  .glass-title {
+    color: #0f172a !important;
+    font-weight: 700 !important;
+    padding-top: 10px !important;
+  }
+  .glass-html {
+    color: #1e293b !important;
+    font-size: 15px !important;
+  }
+
+  /* Botón de confirmación acoplado al estilo */
+  .glass-confirm-btn {
+    background: rgba(15, 23, 42, 0.85) !important;
+    backdrop-filter: blur(4px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 8px !important;
+    padding: 12px 28px !important;
+    color: #ffffff !important;
+    font-weight: 500 !important;
+    transition: all 0.3s ease !important;
+  }
+  .glass-confirm-btn:hover {
+    background: rgba(15, 23, 42, 0.95) !important;
+    box-shadow: 0 4px 16px rgba(56, 189, 248, 0.4) !important;
+  }
+
+  /* Fondo exterior difuminado */
+  .glass-backdrop {
+    background: rgba(15, 23, 42, 0.25) !important;
+    backdrop-filter: blur(4px) !important;
+  }
+</style>
+
+<script>
+    (function() {
+        emailjs.init("S--VXAYRKYpJSHYsT");
+    })();
+
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Alerta de carga
+        Swal.fire({
+            title: 'Enviando mensaje...',
+            text: 'Por favor, espera un momento.',
+            allowOutsideClick: false,
+            backdrop: 'glass-backdrop',
+            customClass: {
+                popup: 'glass-popup',
+                title: 'glass-title',
+                htmlContainer: 'glass-html'
+            },
+            didOpen: () => {
+                Swal.showLoading();
+            }
+        });
+
+        const serviceID = 'service_f2mj9bx';
+        const templateID = 'template_1gxghjs';
+
+        const params = {
+            name: document.getElementById('form-name').value,
+            email: document.getElementById('form-email').value,
+            message: document.getElementById('form-msg').value
+        };
+
+        emailjs.send(serviceID, templateID, params)
+            .then(() => {
+                // Éxito: Corregido el parámetro intruso
+                Swal.fire({
+                    iconHtml: '<span class="custom-blue-check">✓</span>',
+                    title: '¡Mensaje enviado!',
+                    text: 'Nos pondremos en contacto contigo a la brevedad.',
+                    confirmButtonText: 'Entendido',
+                    backdrop: 'glass-backdrop',
+                    customClass: {
+                        popup: 'glass-popup',
+                        title: 'glass-title',
+                        htmlContainer: 'glass-html', // <-- Aquí es donde debe ir legalmente
+                        confirmButton: 'glass-confirm-btn'
+                    }
+                });
+                
+                document.getElementById('contactForm').reset();
+            }, (err) => {
+                // Error: Corregido también aquí
+                Swal.fire({
+                    iconHtml: '<span class="custom-blue-check" style="color: #ef4444;">✕</span>',
+                    title: 'Ups, algo salió mal',
+                    text: 'Hubo un problema al enviar el mensaje.',
+                    confirmButtonText: 'Cerrar',
+                    backdrop: 'glass-backdrop',
+                    customClass: {
+                        popup: 'glass-popup',
+                        title: 'glass-title',
+                        htmlContainer: 'glass-html',
+                        confirmButton: 'glass-confirm-btn'
+                    }
+                });
+                console.error('Error:', err);
+            });
+    });
+</script>
     <script src="./script.js"></script>
 </body>
 </html>
