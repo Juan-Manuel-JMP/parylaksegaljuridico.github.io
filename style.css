@@ -26,7 +26,7 @@ html, body {
 
 /* APLICAR COLOR DORADO A LOS H3 Y H4 DE TODO EL SITIO */
 h3, h4{
-    color: #c5a059 !important; /* Tu color dorado exacto */
+    color: #c5a059 !important; /* color dorado */
 }
 
 .text{
@@ -393,9 +393,9 @@ h2.center-title.glow-text { color: rgba(94, 88, 4, 0.94); }
 }
 
 
-/* ==========================================================================
-    NUEVO: MODAL DE WHATSAPP PREMIUM (ESTILO CRISTAL Y ORO ILUMINADO)
-   ========================================================================== */
+/* ============================================
+    MODAL DE WHATSAPP 
+   ============================================ */
 
 /* Capa de fondo oscuro y difuminado inmersivo */
 #whatsapp-modal-overlay {
@@ -405,7 +405,7 @@ h2.center-title.glow-text { color: rgba(94, 88, 4, 0.94); }
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(7, 9, 12, 0.6); /* Integrado a tu color --dark-prime */
+    background: rgba(7, 9, 12, 0.6); 
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     z-index: 99999;
@@ -417,16 +417,16 @@ h2.center-title.glow-text { color: rgba(94, 88, 4, 0.94); }
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Centrado matemático absoluto */
+    transform: translate(-50%, -50%); /* Centrado calculado */
     width: 90%;
     max-width: 420px;
     
-    /* Concepto Cristal Esmerilado (Glassmorphism de lujo) */
+    /* Concepto glass */
     background: rgba(255, 255, 255, 0.03); 
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
     
-    /* Bordes y Sombras basados en tus variables */
+    /* Bordes y Sombras */
     border: 1px solid var(--glass-border-light);
     border-radius: 28px;
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 
@@ -456,7 +456,7 @@ h2.center-title.glow-text { color: rgba(94, 88, 4, 0.94); }
     transform: scale(1.15);
 }
 
-/* Textos adaptados para legibilidad sobre el cristal */
+/* Textos adaptados para legibilidad sobre el glass */
 .whatsapp-modal-box h3 {
     font-family: var(--font-serif-kinetic);
     font-size: 20px;
@@ -479,15 +479,15 @@ h2.center-title.glow-text { color: rgba(94, 88, 4, 0.94); }
     gap: 14px;
 }
 
-/* Botones Dorados de Asesores (Transparentes con bordes y tipografía fina) */
+/* Botones Dorados  */
 .whatsapp-agent-btn {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     gap: 16px;
     padding: 16px 22px;
-    background: rgba(197, 160, 89, 0.02); /* Sutil tinte de tu oro */
-    border: 1px solid rgba(197, 160, 89, 0.3); /* Borde oro fino */
+    background: rgba(197, 160, 89, 0.02); 
+    border: 1px solid rgba(197, 160, 89, 0.3);
     border-radius: 16px;
     text-decoration: none;
     color: var(--text-primary);
@@ -498,15 +498,15 @@ h2.center-title.glow-text { color: rgba(94, 88, 4, 0.94); }
     transition: var(--bezier-smooth);
 }
 
-/* EFECTO DE ILUMINACIÓN EXTREMA AL TOCAR O HACER HOVER */
+/* EFECTO DE ILUMINACIÓN HOVER */
 .whatsapp-agent-btn:hover,
 .whatsapp-agent-btn:active {
-    background: rgba(197, 160, 89, 0.08); /* Se rellena levemente */
-    border-color: var(--gold); /* Oro sólido */
+    background: rgba(197, 160, 89, 0.08); 
+    border-color: var(--gold); 
     color: #ffffff;
-    transform: translateY(-3px); /* Flotación elegante */
+    transform: translateY(-3px); 
     
-    /* Sistema multicapa de Glow Dorado usando tus variables nativas */
+    /* Sistema multicapa de Glow */
     box-shadow: 0 0 25px var(--gold-glow-color),
                 0 0 50px rgba(197, 160, 89, 0.15),
                 inset 0 0 12px var(--gold-glow-color);
@@ -515,10 +515,10 @@ h2.center-title.glow-text { color: rgba(94, 88, 4, 0.94); }
 /* Icono de WhatsApp */
 .whatsapp-agent-btn i {
     font-size: 20px;
-    color: #25d366; /* Verde icónico inicial */
+    color: #25d366; 
     transition: var(--bezier-smooth);
 }
-/* Sincronización del icono con el brillo de oro al iluminarse */
+/* Sincronización del icono con el brillo iluminado */
 .whatsapp-agent-btn:hover i,
 .whatsapp-agent-btn:active i {
     color: var(--gold);
