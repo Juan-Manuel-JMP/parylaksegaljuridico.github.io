@@ -11,10 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (typingElement) {
         let charIndex = 0;
         let isDeleting = false;
-        let timeoutId = null; // Guardamos el temporizador para poder cancelarlo
+        let timeoutId = null; 
 
         function typeLoop() {
-            // Lee el idioma actual dinámicamente desde el atributo data-text o data-es
             const currentText = typingElement.getAttribute('data-text') || typingElement.getAttribute('data-es') || "Jurídica";
             
             if (!isDeleting) {
@@ -40,16 +39,14 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        // Función externa que llamará el botón de idioma para reiniciar el bucle limpio
         resetTypingEffect = () => {
-            clearTimeout(timeoutId); // Frenamos la escritura del idioma anterior
+            clearTimeout(timeoutId); 
             charIndex = 0;
             isDeleting = false;
             typingElement.textContent = "";
-            typeLoop(); // Arrancamos con la nueva palabra
+            typeLoop(); 
         };
 
-        // Inicio inicial
         setTimeout(typeLoop, 400);
     }
 
@@ -91,9 +88,9 @@ document.addEventListener("DOMContentLoaded", () => {
         startSlideShow();
     }
 
-    // ==========================================================================
-    // 3. GESTIÓN MULTILENGUAJE DINÁMICO (ES || EN) - ¡REPARADO PARA EL CURSOR!
-    // ==========================================================================
+    // ==============================================================
+    // 3. GESTIÓN MULTILENGUAJE DINÁMICO (ES || EN) 
+    // ==============================================================
     const langToggle = document.getElementById("langToggle");
     let activeLanguage = "ES";
 
@@ -106,12 +103,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 const translation = element.getAttribute(`data-${activeLanguage.toLowerCase()}`);
                 
                 if (element.classList.contains('typing-effect')) {
-                    // En lugar de romper el texto, actualizamos el atributo que lee el typeLoop
                     element.setAttribute('data-text', translation);
-                    // Reiniciamos el efecto de máquina de escribir con la nueva palabra
                     resetTypingEffect();
                 } else {
-                    // Para el resto de textos normales de la web
                     element.innerText = translation;
                 }
             });
@@ -149,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
             link.addEventListener("click", () => {
                 mobileMenu.classList.remove("active");
                 menuIcon.className = "fas fa-bars-staggered";
-            });
+            }); // <-- Corregido el cierre del addEventListener y forEach aquí
         });
     }
 
@@ -221,7 +215,31 @@ document.addEventListener("DOMContentLoaded", () => {
         desktopMenuItems.forEach(item => {
             item.classList.remove("active");
             if (item.getAttribute("href") === `#${currentActiveSectionId}`) {
-                item.classList.add("active");
+                item.classList.add("active"); 
+            }
+        });
+    }
+
+    // ==========================================================================
+    // 7. REDES WHATSAPP 
+    // ==========================================================================
+    const triggerButton = document.getElementById('btn-open-whatsapp-modal');
+    const closeButton = document.getElementById('btn-close-whatsapp-modal');
+    const modalOverlay = document.getElementById('whatsapp-modal-overlay');
+
+    if (triggerButton && closeButton && modalOverlay) {
+        triggerButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            modalOverlay.style.display = 'block';
+        });
+
+        closeButton.addEventListener('click', () => {
+            modalOverlay.style.display = 'none';
+        });
+
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                modalOverlay.style.display = 'none';
             }
         });
     }
