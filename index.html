@@ -24,8 +24,32 @@
     <div class="floating-socials">
         <a href="https://ar.linkedin.com/" target="_blank" class="social-link btn-glow-gold" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
         <a href="https://www.instagram.com/?hl=es" target="_blank" class="social-link btn-glow-gold" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://wa.me/541136388425" target="_blank" class="social-link btn-glow-gold" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <button id="btn-open-whatsapp-modal" class="social-link btn-glow-gold" aria-label="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </button>
     </div>
+
+<div id="whatsapp-modal-overlay">
+        <div class="whatsapp-modal-box">
+            <button id="btn-close-whatsapp-modal"><i class="fas fa-times"></i></button>
+            <h3>Contactanos</h3>
+            <p>Desea comunicarse inmediatamente.</p>
+            <div class="whatsapp-team-list">
+                <a href="https://wa.me/5491136388425?text=Hola,%20soy%20la%20Dra.%20Parylak,%20Julieta.%20Hablemos." class="whatsapp-agent-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>Dra. Parylak, Julieta</span>
+                </a>
+                <a href="https://wa.me/5491156640443?text=Hola,%20soy%20la%20Dra.%20sEGAL,%20Johanna.%20Hablemos." class="whatsapp-agent-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>Dra. Segal, Johanna</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
 
     <button id="scrollTop" class="float-scroll-btn" aria-label="Ir al inicio">
         <i class="fas fa-chevron-up"></i>
