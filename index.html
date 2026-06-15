@@ -103,7 +103,7 @@
         <h2 class="center-title glow-text" data-es="Sobre Nosotras" data-en="About Us">Sobre Nosotras</h2>
         
         <div class="about-grid">
-            <!-- Bloque 1: Tus fotos (Se mantiene igual) -->
+            <!--  fotos -->
             <div class="venn-wrapper wider-gap">
                 <div class="venn-photo circle-1 space-left">
                     <img src="./juli.jpeg" alt="Dra. Parylak, Julieta">
@@ -118,7 +118,7 @@
                 </div>
             </div>
 
-            <!-- Bloque 2: La Nueva Card (Sustituye al texto suelto que tenías antes) -->
+            <!-- Card  -->
             <div class="about-text-card glass-item">
                 <div class="icon-wrapper-card"><i class="fa-solid fa-scale-balanced"></i></div>
                 <h5 class="center-title glow-text btn-glow-gold title-small" data-es="Nuestro Estudio" data-en="Our Firm">Nuestro Estudio</h5>
@@ -310,9 +310,9 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <style>
-  /* Contenedor principal de la alerta (Cristal más transparente y limpio) */
+  /* Contenedor principal de la alerta */
   .glass-popup {
-    background: rgba(255, 255, 255, 0.25) !important; /* Más transparente para potenciar el efecto vidrio */
+    background: rgba(255, 255, 255, 0.25) !important; 
     backdrop-filter: blur(16px) !important; 
     -webkit-backdrop-filter: blur(16px) !important;
     border: 1px solid rgba(255, 255, 255, 0.3) !important; 
@@ -331,7 +331,7 @@
   /* Estilo personalizado para el Check Azul */
   .custom-blue-check {
     font-size: 60px;
-    color: #38bdf8; /* Azul celeste brillante / corporativo */
+    color: #38bdf8; /* Azul celeste brillante */
     line-height: 1;
     display: block;
     user-select: none;
@@ -406,7 +406,6 @@
 
         emailjs.send(serviceID, templateID, params)
             .then(() => {
-                // Éxito: Corregido el parámetro intruso
                 Swal.fire({
                     iconHtml: '<span class="custom-blue-check">✓</span>',
                     title: '¡Mensaje enviado!',
@@ -416,14 +415,13 @@
                     customClass: {
                         popup: 'glass-popup',
                         title: 'glass-title',
-                        htmlContainer: 'glass-html', // <-- Aquí es donde debe ir legalmente
+                        htmlContainer: 'glass-html', 
                         confirmButton: 'glass-confirm-btn'
                     }
                 });
                 
                 document.getElementById('contactForm').reset();
             }, (err) => {
-                // Error: Corregido también aquí
                 Swal.fire({
                     iconHtml: '<span class="custom-blue-check" style="color: #ef4444;">✕</span>',
                     title: 'Ups, algo salió mal',
