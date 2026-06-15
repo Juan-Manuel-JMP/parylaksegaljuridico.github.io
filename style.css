@@ -136,7 +136,7 @@ section {
 .mobile-floating-nav.active { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
 .mobile-floating-nav a { color: goldenrod; text-decoration: none; font-size: 1rem; font-weight: 600; padding: 6px 10px; transition: var(--bezier-smooth); }
 
-/* REQUISITO 1: SECCIÓN NOSOTRAS CON CUBIC-BEZIER AUTOMÁTICO CADA 2 SEGUNDOS */
+/* NOSOTRAS CON CUBIC-BEZIER AUTOMÁTICO */
 .about-flex-container {
     display: flex;
     flex-direction: column;
@@ -145,7 +145,6 @@ section {
     width: 100%;
     padding: 20px;
 }
-
 .about-grid { 
     display: grid; 
     grid-template-columns: 1fr; 
@@ -154,7 +153,6 @@ section {
     justify-items: center;
     width: 100%; 
 }
-
 .about-text-card {
     padding: 40px;
     text-align: left;
@@ -166,14 +164,12 @@ section {
     transition: var(--bezier-smooth);
     max-width: 550px;
 }
-
 .about-text-card:hover {
     background: rgba(255, 255, 255, 0.05);
     border-color: var(--gold);
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(0,0,0,0.4), inset 0 0 15px var(--gold-glow-color);
 }
-
 .icon-wrapper-card { font-size: 2rem; color: var(--gold); margin-bottom: 15px; }
 .about-text-card h3 { font-family: var(--font-serif-kinetic); color: var(--gold); font-size: 1.8rem; margin-bottom: 20px; }
 .about-text-card p { color: var(--text-secondary); line-height: 1.7; margin-bottom: 15px; font-size: 0.95rem; }
@@ -195,7 +191,6 @@ section {
     object-fit: cover; 
     border-radius: 50%;
 }
-
 .venn-photo {
     position: absolute;
     width: 100px;
@@ -205,7 +200,6 @@ section {
     box-shadow: 0 15px 35px rgba(0,0,0,0.6);
     transition: border-color 0.6s ease;
 }
-
 .venn-photo .img-wrapper {
     width: 100%;
     height: 100%;
@@ -215,7 +209,6 @@ section {
     top: 0;
     left: 0;
 }
-
 .venn-caption {
     position: absolute;
     bottom: -30px;
@@ -228,7 +221,6 @@ section {
     text-shadow: 0 2px 4px rgba(0,0,0,0.8);
     text-align: center;
 }
-
 .space-left { 
     z-index: 2; 
     animation: autoVennLeft 3s cubic-bezier(0.25, 1, 0.5, 1) infinite alternate;
@@ -248,48 +240,37 @@ section {
 }
 
 .venn-center-axis { position: absolute; z-index: 4; background: var(--dark-prime); border: 2px solid var(--gold); width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: var(--gold); font-size: 1.4rem; box-shadow: 0 0 20px var(--gold-glow-color); pointer-events: none; }
-
 .text-block.text-center-card { text-align: center; padding: 45px 35px; border: 1px solid var(--glass-border-light); background: var(--glass-background); transition: var(--bezier-smooth); }
 .text-block.text-center-card:hover { border-color: rgba(197, 160, 89, 0.4); box-shadow: 0 20px 45px rgba(197, 160, 89, 0.08); transform: translateY(-4px); }
 
-
-/* REQUISITO 2: SECCIÓN PRINCIPAL - ESCRITURA AUTOMÁTICA EN "VEREDICTO" [CORREGIDO] */
+/* SECCION PRINCIPAL - ESCRITURA AUTOMATICA */
 .glow-title { 
     font-family: var(--font-serif-kinetic); 
-    font-size: 1.15rem; /* Tamaño optimizado móvil */
+    font-size: 1.15rem; 
     color: var(--gold); 
     text-transform: uppercase; 
-    margin-bottom: 15px; /* Reducido de 25px a 15px para acercarlo más */
-    min-height: 45px; /* Asegura espacio suficiente para resoluciones grandes */
-    
-    /* Centrado flexible absoluto */
+    margin-bottom: 15px; 
+    min-height: 45px; 
     display: inline-flex;  
     align-items: center;   
     justify-content: center;
     text-align: center;
     white-space: nowrap;
 }
-
-/* El mini cursor perfectamente integrado y adaptativo al tamaño de la letra */
 .glow-title::after {
     content: "";
     display: inline-block; 
     margin-left: 10px; 
     flex-shrink: 0;
-    
     width: 4px;         
-    height: 0.85em; /* Proporcional a la tipografía activa, da igual móvil o escritorio */
-    
+    height: 0.85em; 
     background-color: var(--gold);
     animation: blinkCursor 0.75s step-end infinite;
 }
-
-/* Animación limpia del parpadeo */
 @keyframes blinkCursor {
     from, to { opacity: 0; }
     50% { opacity: 1; }
 }
-
 
 /* PILARES FUNDAMENTALES */
 .values-grid.dual-block-desktop { display: grid; grid-template-columns: 1fr; gap: 25px; }
@@ -333,9 +314,7 @@ section {
 
 .glass-item { background: var(--glass-background); border: 1px solid var(--glass-border-light); backdrop-filter: blur(12px); border-radius: 20px; }
 .glow-text { text-shadow: 0 0 15px var(--gold-glow-color); }
-h2.center-title.glow-text {
-    color: rgba(94, 88, 4, 0.94);
-}
+h2.center-title.glow-text { color: rgba(94, 88, 4, 0.94); }
 .btn-glow-gold { background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 10px 10px; border-radius: 30px; font-weight: 700; text-decoration: none; text-transform: uppercase; font-size: 0.85rem; transition: var(--bezier-smooth); cursor: pointer; letter-spacing: 1px; }
 .btn-glow-gold:hover { background: var(--gold); color: var(--dark-prime); box-shadow: 0 0 25px var(--gold); }
 
@@ -359,24 +338,18 @@ h2.center-title.glow-text {
 .footer-container { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; font-size: 0.75rem; color: var(--text-secondary); letter-spacing: 1px; }
 .footer-container .separator { display: none; }
 
+
 /* ==========================================================================
-    MEDIA QUERIES (Escritorio Mobile)
+    MEDIA QUERIES (Escritorio / Mobile)
    ========================================================================== */
 @media (min-width: 463px) {
     section { padding: 150px 60px 110px 60px; }
     .kinetic-title { font-size: 3.5rem; }
-    
-    /* Configuración de tamaño en escritorio */
-    .glow-title { 
-        font-size: 4.5rem; 
-        min-height: 120px; /* Solo se activa de pantallas medianas en adelante */
-        margin-bottom: 25px;
-    }
+    .glow-title { font-size: 4.5rem; min-height: 120px; margin-bottom: 25px; }
     .stats-equal-grid-centered { grid-template-columns: repeat(3, 1fr); gap: 30px; }
     .venn-wrapper.wider-gap { height: 400px; }
     .venn-photo { width: 200px; height: 200px; }
     
-    /* Variación automática responsive */
     @keyframes autoVennLeft {
         0%, 15% { transform: translateX(-75px) scale(1); }
         50%, 100% { transform: translateX(-155px) scale(1.04); border-color: var(--gold); }
@@ -394,20 +367,12 @@ h2.center-title.glow-text {
 @media (min-width: 1024px) {
     .desktop-menu { display: flex; gap: 32px; }
     .menu-icon-toggle, .mobile-floating-nav { display: none; }
-    
-    .about-grid { 
-        grid-template-columns: 1.2fr 0.8fr;
-        gap: 30px; 
-        max-width: 1300px; 
-        margin: 0 auto; 
-    }
+    .about-grid { grid-template-columns: 1.2fr 0.8fr; gap: 30px; max-width: 1300px; margin: 0 auto; }
     .values-grid.dual-block-desktop { grid-template-columns: repeat(3, 1fr); gap: 35px; max-width: 1200px; margin: 0 auto; }
     .services-cards-independent { grid-template-columns: repeat(3, 1fr); gap: 35px; max-width: 1200px; margin: 0 auto; }
-    
     .venn-wrapper.wider-gap { height: 460px; max-width: 550px; margin: 0; }
     .venn-photo { width: 270px; height: 270px; }
     
-    /* Variación automática en resoluciones mayores */
     @keyframes autoVennLeft {
         0%, 15% { transform: translateX(-65px) scale(1); }
         50%, 100% { transform: translateX(-180px) scale(1.05); border-color: var(--gold); }
@@ -420,10 +385,158 @@ h2.center-title.glow-text {
     .carousel-container-compact { max-width: 650px; padding: 55px 45px; }
 }
 
-/* Cancela el zoom automático en móviles al hacer focus */
 @media (max-width: 768px) {
   .interactive-form-group input:focus, 
   .interactive-form-group textarea:focus {
     font-size: 16px !important;
   }
+}
+
+
+/* ==========================================================================
+    NUEVO: MODAL DE WHATSAPP PREMIUM (ESTILO CRISTAL Y ORO ILUMINADO)
+   ========================================================================== */
+
+/* Capa de fondo oscuro y difuminado inmersivo */
+#whatsapp-modal-overlay {
+    display: none; /* JS se encarga de cambiarlo a block */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(7, 9, 12, 0.6); /* Integrado a tu color --dark-prime */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    z-index: 99999;
+    animation: fadeInOverlay 0.4s ease-out;
+}
+
+/* Caja contenedora: Flotando en el centro exacto y transparente */
+.whatsapp-modal-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrado matemático absoluto */
+    width: 90%;
+    max-width: 420px;
+    
+    /* Concepto Cristal Esmerilado (Glassmorphism de lujo) */
+    background: rgba(255, 255, 255, 0.03); 
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    
+    /* Bordes y Sombras basados en tus variables */
+    border: 1px solid var(--glass-border-light);
+    border-radius: 28px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 
+                inset 0 0 20px rgba(255, 255, 255, 0.02);
+    
+    padding: 40px 30px;
+    text-align: center;
+    box-sizing: border-box;
+    animation: scaleUpBox 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Botón para cerrar (X) en la esquina */
+#btn-close-whatsapp-modal {
+    position: absolute;
+    top: 20px;
+    right: 22px;
+    background: none;
+    border: none;
+    font-size: 22px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: var(--bezier-smooth);
+    line-height: 1;
+}
+#btn-close-whatsapp-modal:hover {
+    color: var(--gold);
+    transform: scale(1.15);
+}
+
+/* Textos adaptados para legibilidad sobre el cristal */
+.whatsapp-modal-box h3 {
+    font-family: var(--font-serif-kinetic);
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+.whatsapp-modal-box p {
+    color: var(--text-secondary);
+    font-family: var(--font-sans-modern);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Lista de contactos vertical */
+.whatsapp-team-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* Botones Dorados de Asesores (Transparentes con bordes y tipografía fina) */
+.whatsapp-agent-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    padding: 16px 22px;
+    background: rgba(197, 160, 89, 0.02); /* Sutil tinte de tu oro */
+    border: 1px solid rgba(197, 160, 89, 0.3); /* Borde oro fino */
+    border-radius: 16px;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-family: var(--font-sans-modern);
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    transition: var(--bezier-smooth);
+}
+
+/* EFECTO DE ILUMINACIÓN EXTREMA AL TOCAR O HACER HOVER */
+.whatsapp-agent-btn:hover,
+.whatsapp-agent-btn:active {
+    background: rgba(197, 160, 89, 0.08); /* Se rellena levemente */
+    border-color: var(--gold); /* Oro sólido */
+    color: #ffffff;
+    transform: translateY(-3px); /* Flotación elegante */
+    
+    /* Sistema multicapa de Glow Dorado usando tus variables nativas */
+    box-shadow: 0 0 25px var(--gold-glow-color),
+                0 0 50px rgba(197, 160, 89, 0.15),
+                inset 0 0 12px var(--gold-glow-color);
+}
+
+/* Icono de WhatsApp */
+.whatsapp-agent-btn i {
+    font-size: 20px;
+    color: #25d366; /* Verde icónico inicial */
+    transition: var(--bezier-smooth);
+}
+/* Sincronización del icono con el brillo de oro al iluminarse */
+.whatsapp-agent-btn:hover i,
+.whatsapp-agent-btn:active i {
+    color: var(--gold);
+    transform: scale(1.1);
+}
+
+/* ANIMACIONES COMPLEMENTARIAS */
+@keyframes fadeInOverlay {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes scaleUpBox {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -46%) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
 }
