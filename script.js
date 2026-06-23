@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
             link.addEventListener("click", () => {
                 mobileMenu.classList.remove("active");
                 menuIcon.className = "fas fa-bars-staggered";
-            }); // <-- Corregido el cierre del addEventListener y forEach aquí
+            });
         });
     }
 
